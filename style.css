@@ -1,0 +1,385 @@
+@import url('https://fonts.googleapis.com/css2?family=Berkshire+Swash&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Pacifico&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
+:root {
+
+    --primary: #a60303;
+    --second: #fc4402;
+    --third: #f99305;
+    --four: #e5e555;
+    --font-big: 4rem;
+    --font: 'Berkshire Swash', cursive;
+}
+
+* {
+
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+
+    background-color: #fff;
+    font-family: 'Berkshire Swash', cursive;
+}
+
+.banner {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    transition: 0.5s;
+    /* justify-content: center;
+    align-items: center; */
+}
+
+/* ---------------  BANNER-SECTION  ------------------- */
+.banner-section {
+
+    position: relative;
+    display: flex;
+    width: 25%;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 700;
+    transform: skew(0, 0);
+    transition: 0.2s;
+
+}
+
+.banner-section h1 {
+    padding: 0px 9px;
+    border-radius: 1rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    z-index: 900;
+    position: absolute;
+    font-size: var(--font-big);
+    text-transform: uppercase;
+    font-family: 'Berkshire Swash', cursive;
+    backdrop-filter: drop-shadow(0 4px 30px rgba(0, 0, 0, 0.3)) blur(10px);
+}
+
+.banner-section a {
+
+    position: absolute;
+    z-index: 1000;
+    color: #000;
+    font-size: 3rem;
+    font-weight: 800;
+    bottom: 39%;
+    text-decoration: none;
+    border: 1px solid #000;
+    padding: 1px 70px;
+    border-radius: 5rem;
+    display: flex;
+    align-items: start;
+    backdrop-filter: drop-shadow(0 4px 30px rgba(0, 0, 0, 0.915)) blur(6px);
+}
+
+.banner-section:hover h1,
+.banner-section:hover a {
+
+    color: #fff;
+    backdrop-filter: drop-shadow(0 4px 30px rgba(0, 0, 0, 0.915)) blur(6px);
+
+}
+
+.banner-section:hover a {
+
+    color: #fff;
+    border: 1px solid #fff;
+
+}
+
+.banner-section img {
+
+    position: absolute;
+    z-index: 700;
+    width: 125%;
+    height: 100vh;
+    object-fit: cover;
+    object-position: center;
+    opacity: 0;
+    visibility: hidden;
+}
+
+
+/* ---------------  BANNER-SECTION-AFTER  ------------------- */
+
+.banner-section::after {
+    top: 0;
+    left: 0;
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 100%;
+    background: rgba(225, 225, 225, 0.5);
+    backdrop-filter: blur(5px);
+    z-index: 700;
+}
+
+.banner-section:hover img {
+
+    opacity: 1;
+    visibility: visible;
+}
+
+.banner-section.one:hover::after,
+.banner-section.one.active:after {
+
+    background-color: var(--primary);
+    opacity: 0.3;
+}
+
+.banner-section.two:hover::after,
+.banner-section.two.active::after {
+
+    background-color: var(--second);
+    opacity: 0.3;
+}
+
+.banner-section.three:hover::after,
+.banner-section.three.active::after {
+
+    background-color: var(--third);
+    opacity: 0.3;
+}
+
+.banner-section.four:hover::after,
+.banner-section.four.active::after {
+
+    background-color: var(--four);
+    opacity: 0.3;
+}
+
+.banner-section.active img {
+
+    opacity: 1;
+    visibility: visible;
+}
+
+/* _________________  Banner Active  _________________ */
+.banner.active {
+    position: relative;
+    justify-content: space-between;
+
+
+}
+
+.banner.active .banner-section {
+    width: 15%;
+    left: 0;
+
+}
+
+.banner.active .banner-section h1 {
+    font-size: 3rem;
+
+}
+
+.banner.active .banner-section.two {
+    right: 13.5%;
+    left: auto;
+}
+
+.banner.active .banner-section.three {
+    left: 13.5%;
+
+}
+
+.banner.active .banner-section.four {
+    left: 0;
+    right: auto;
+}
+
+.banner.active .banner-section img {
+    opacity: 1;
+    visibility: visible;
+}
+
+.banner.active .banner-section:nth-child(odd) {
+    transform: skew(0, -35deg);
+    /* box-shadow: 0 0 40px rgb(0, 0, 0, 0.3) ; */
+
+
+}
+
+
+.banner.active .banner-section:nth-child(even) {
+    transform: skew(0, 35deg);
+    box-shadow: 0 0 40px rgb(0, 0, 0, 0.3);
+
+}
+
+/*_________________ Content Active _________________*/
+
+.content {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-content: start;
+    flex-direction: column;
+
+    font-family: var(--font);
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100%;
+}
+
+.banner .item {
+    z-index: 1000;
+    height: 150vh;
+    width: 30vw;
+    opacity: 0;
+    visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    justify-content: center;
+    align-items: start;
+    top: 18%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    gap: 30px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+
+}
+
+
+.banner.active .item.active {
+    opacity: 1;
+    visibility: visible;
+
+}
+
+.banner.active .content .close-btn {
+    font-size: 3rem;
+    text-decoration: none;
+    color: #000;
+    position: absolute;
+    display: flex;
+    left: 50%;
+    z-index: 1000;
+    top: 10%;
+
+
+}
+
+.banner .item .content-food {
+    z-index: 1000;
+    height: 20vh;
+    width: 30vw;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    justify-content: start;
+    align-items: center;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0px 0px 40px rgba(48, 48, 48, 0.476);
+
+}
+
+.banner .item .content-food .buy-btn {
+    left: 80%;
+    font-size: 2rem;
+    text-decoration: none;
+    color: #3c1b1b;
+    position: absolute;
+}
+
+.banner .item .content-food .info-btn {
+    left: 70%;
+    font-size: 2rem;
+    text-decoration: none;
+    color: #3c1b1b;
+    position: absolute;
+}
+
+.banner .item img {
+    width: 39%;
+    padding: 0 40px;
+}
+
+.banner .item .content-food h1 {
+    width: 30%;
+    left: 30%;
+}
+
+.banner .cards .card{
+        z-index: 900;
+    height: 100vh;
+    width: 30vw;
+    opacity: 0;
+    visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    gap: 30px;
+}
+
+.banner .cards{
+     position: absolute;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    font-family: var(--font);
+    top: 50%;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+   
+}
+/* .banner.active .card.active .btns{
+
+    
+} */
+.banner.active .card.active a{
+    font-family: var(--font);
+text-decoration: none;    display: flex;
+    position: relative;
+    gap: 20px;
+    font-size: 1.5rem;
+    color:#a60303;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    padding: 5px 0px;
+    background-color: rgba(204, 203, 202, 0.542);
+    border-radius: 10px;
+    width: 30%;
+    margin-top: 10px;
+       box-shadow: 0px 0px 5px rgba(48, 48, 48, 0.476);
+
+}
+
+.banner .cards h1{
+    color:#a60303;
+}
+.banner .cards img {
+    width: 70%;
+    padding: 0 40px;
+}
+
+.banner .cards .content-food h1 {
+    width: 40%;
+    
+}
+.banner.active .cards .card.active{
+    opacity: 1;
+    visibility: visible;
+}
